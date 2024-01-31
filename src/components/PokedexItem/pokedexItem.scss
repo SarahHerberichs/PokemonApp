@@ -1,0 +1,10 @@
+.pokedex-item {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+}
+.pokemon-name {
+  justify-self: start;
+  text-transform: capitalize;
+}

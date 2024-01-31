@@ -1,0 +1,56 @@
+#team {
+  main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+
+    & > p {
+      width: 100%;
+      text-align: center;
+    }
+
+    article {
+      width: 48%;
+      height: fit-content;
+      padding: 8px;
+      margin: 8px 1%;
+      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.38);
+      border-radius: 8px;
+      background: rgb(238, 174, 202);
+      background: radial-gradient(
+        circle,
+        rgba(238, 174, 202, 1) 0%,
+        rgba(148, 187, 233, 1) 100%
+      );
+
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+      .name-and-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .btn-remove {
+          border: none;
+          margin: 4px 8px;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-weight: bold;
+          color: #fff;
+          background-color: #ae3127;
+        }
+      }
+    }
+  }
+}
