@@ -50,6 +50,18 @@
           color: #fff;
           background-color: #ae3127;
         }
+        .hovered-pokemon-details {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 0;
+          overflow: hidden;
+          transition: height 0.5s; /* La transition prend 0.5 seconde */
+
+          &.active {
+            height: auto;
+          }
+        }
       }
     }
   }
