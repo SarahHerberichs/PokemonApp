@@ -1,31 +1,21 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { BrowserRouter } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import { useContext, useEffect } from "react";
-import PokemonContext from "./data/PokemonContext";
-import Home from "./components/Home/Home";
-import Team from "./components/Team/Team";
 
+import Router from "./Routes/Router";
+//Déjà englobé par le Provider qui utilise le Context relié au Reducer (permet acces au state et dispatch)
 const App = () => {
-  // On récupère le state et le dispatch qui permet d'agir sur ce state
-  // Ils viennent du context qui est fourni par le Provider
-  const [state, dispatch] = useContext(PokemonContext);
-
-  // On utilise useEffect pour que le code qu'il contient ne s'execute qu'une fois
-  // au 1er rendu du composant. ( il ne le fait qu'une fois car le tableau de dépendances en
-  // 2e argument de useEffect est vide, on ne surveille aucune donnée du state )
+  // Execution une seule fois au chargement
   useEffect(() => {
     // On fait un call API pour récupérer les 151 1ers pokemons
     fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0", {
       method: "GET",
     })
-      .then((response) => response.json()) // on recupere le json de la reponse de l'API
+      .then((response) => response.json())
       .then((data) => {
-        // on stock les pokemons recupérés dans un variable
         let APIPokemons = data.results;
-        // on enregistre les pokemons de l'API dans le state
+        // Enregistrement des pokémons dans le state
         dispatch({ type: "SET_POKEMONS", payload: APIPokemons });
       });
   }, []);
@@ -36,7 +26,7 @@ const App = () => {
     if (state.error) {
       errorBox.textContent = state.error;
     } else {
-      errorBox.textContent = ""; // Efface le contenu si state.error est faux ou nul
+      errorBox.textContent = ""; // Efface le contenu si state.error est faux ou null
     }
   }, [state.error]);
 
@@ -44,10 +34,7 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <main id="app_main">
-        <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/team" element={<Team />} />
-        </Routes>
+        <Router />
         {!state.error ? (
           <div id="error-box" className="invisible">
             {state.error}

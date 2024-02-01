@@ -2,7 +2,7 @@ import "./header.scss";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <header id="main_header">
+    <header id="main-header">
       <h1>PokéApp</h1>
       <nav>
         <ul>

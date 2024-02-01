@@ -1,5 +1,6 @@
-import {createContext} from "react";
+import { createContext } from "react";
 
-// On créer un nouveau context ( qui sera utile avec le Provider )
+//Création d'un context pour l'utiliser dans le Provider
 const PokemonContext = createContext([]);
+
 export default PokemonContext;

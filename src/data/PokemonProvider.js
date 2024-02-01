@@ -1,19 +1,17 @@
-import {useReducer} from "react";
-import PokemonReducer, {initialState} from "./PokemonReducer";
+import { useReducer } from "react";
+import PokemonReducer, { initialState } from "./PokemonReducer";
 import PokemonContext from "./PokemonContext";
 
-// On créer le Provider qui fournira le state et de quoi agir dessus ( dispatch )
-const PokemonProvider = ( { children } ) => {
+//Création du Provider qui fournira le state + possibilité d'utiliser les actions sur le state via le dispatch
+const PokemonProvider = ({ children }) => {
+  // state et dispatch utilisant le reducer PokemonReducer
+  const [state, dispatch] = useReducer(PokemonReducer, initialState);
 
-    // on met en lien le reducer avec le state "initialState"
-    const [state, dispatch] = useReducer(PokemonReducer, initialState);
-
-    // On retourne le template qui permet d'insérer des balises enfants dans le Provider
-    // en lui indiquant sa value, c'est à dire quel state et quel dispatch il doit fournir
-    return (
-        <PokemonContext.Provider value={[state, dispatch]}>
-            { children }
-        </PokemonContext.Provider>
-    )
-}
+  //Pour encadrement de l'appli dans le Provider dont la valeur est le state et dispatch utilisable sur PokemonReducer
+  return (
+    <PokemonContext.Provider value={[state, dispatch]}>
+      {children}
+    </PokemonContext.Provider>
+  );
+};
 export default PokemonProvider;

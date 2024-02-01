@@ -2,13 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./pokedexItem.scss";
 import BtnDetails from "../BtnDetails/BtnDetails";
 import BtnAddToTeam from "../BtnAddToTeam/BtnAddToTeam";
-import { useContext } from "react";
-import PokemonContext from "../../data/PokemonContext";
 
 const PokedexItem = ({ pokemon }) => {
-  const [state, dispatch] = useContext(PokemonContext);
   const [pokemonImage, setPokemonImage] = useState(null);
-
+  //Cherche les détails du pokemon passé en props
   useEffect(() => {
     const fetchPokemonImage = async () => {
       try {

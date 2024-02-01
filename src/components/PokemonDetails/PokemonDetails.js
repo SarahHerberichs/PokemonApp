@@ -9,7 +9,7 @@ const PokemonDetails = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   //Déclenchement au chargement, une seule fois
   useEffect(() => {
-    //Pour changement des images toutes les secondes
+    //Index d'interval pour changement des images
     const intervalId = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 4);
     }, 1000);
