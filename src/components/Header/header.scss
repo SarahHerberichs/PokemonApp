@@ -1,9 +1,36 @@
 #main-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; // Permet d'espacer les éléments à chaque extrémité
   align-items: center;
+  width: 100vw;
   height: 70px;
   margin-bottom: 20px;
   background-color: #c4342d;
   color: #fff;
+  padding: 4em;
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-left: 15px; // Espacement entre les éléments li (ajustez selon vos besoins)
+        font-size: 1.5em;
+        &:first-child {
+          margin-left: 0; // Aucun espacement à gauche pour le premier élément li
+        }
+
+        a {
+          text-decoration: none;
+          color: #fff;
+
+          &:hover {
+            text-decoration: underline; // Effet de soulignement au survol
+          }
+        }
+      }
+    }
+  }
 }

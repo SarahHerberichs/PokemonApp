@@ -4,8 +4,11 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
 import Router from "./Routes/Router";
-//Déjà englobé par le Provider qui utilise le Context relié au Reducer (permet acces au state et dispatch)
+import { useContext, useEffect } from "react";
+import PokemonContext from "./data/PokemonContext";
+
 const App = () => {
+  const [state, dispatch] = useContext(PokemonContext);
   // Execution une seule fois au chargement
   useEffect(() => {
     // On fait un call API pour récupérer les 151 1ers pokemons
