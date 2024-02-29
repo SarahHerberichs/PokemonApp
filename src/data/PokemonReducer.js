@@ -42,11 +42,15 @@ const PokemonReducer = (state, action) => {
       updatedTeamAfterRemove = updatedTeamAfterRemove.filter(
         (pokemon, index) => index !== action.payload
       );
+      localStorage.setItem("myTeam", JSON.stringify(updatedTeamAfterRemove));
+
       //myTeam mise à jour
       return {
         ...state,
         myTeam: updatedTeamAfterRemove,
       };
+    // Mise à jour du localStorage
+
     default:
       return state;
   }
